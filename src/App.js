@@ -1,7 +1,5 @@
 import React from "react"
 import Header from "./components/Header"
-import Cart from "./pages/Cart"
-import Photos from "./pages/Photos"
 import './styles.css'
  
 function App() {    

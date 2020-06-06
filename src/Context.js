@@ -24,8 +24,6 @@ function ContextProvider({children}) {
     function toggleFavorite(id) {
         const updateArr = allPhotos.map(photo => {
             if(photo.id === id) {
-                console.log(id)
-                console.log(!photo.isFavorite)
                 return { ...photo, isFavorite: !photo.isFavorite }
             }
             return photo
