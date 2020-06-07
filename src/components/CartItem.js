@@ -1,11 +1,11 @@
-import React, {useContext, useState} from "react"
+import React, {useContext} from "react"
 import {Context} from "../Context"
 
 
 
 function CartItem({item}) {
     
-    const {cartItems, removeFromCart} = useContext(Context)
+    const {removeFromCart} = useContext(Context)
     
     function trashCan() {
         return <i className="ri-delete-bin-line" onClick={() => removeFromCart(item.id)}></i>
