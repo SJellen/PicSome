@@ -1,7 +1,5 @@
-import React, {useState, useContext} from "react"
-import {Route, Link, Switch} from 'react-router-dom'
-import Cart from "../pages/Cart"
-import Photos from "../pages/Photos"
+import React, {useContext} from "react"
+import {Link} from 'react-router-dom'
 import {Context} from "../Context"
 
 function Header() {
@@ -24,16 +22,7 @@ function Header() {
             <Link to="/cart">{headerCartIcon()}</Link>
         </header>
         
-        <Switch>
-        <Route path="/">
-        <Photos />
-        </Route>
-        
-        <Route path="/cart">
-        <Cart />
-        </Route>
-        
-        </Switch>
+
         </div>
     )
 }
