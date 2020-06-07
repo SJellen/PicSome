@@ -1,19 +1,23 @@
-import React, {useContext} from "react"
+import React, {useContext, useState} from "react"
 import {Context} from "../Context"
 
 
 
 function CartItem({item}) {
-    
+    const [hover, setHover] =useState(false)
     const {removeFromCart} = useContext(Context)
-    
-    function trashCan() {
-        return <i className="ri-delete-bin-line" onClick={() => removeFromCart(item.id)}></i>
-    }
-    
+  
+    const iconClassName = hover ? "ri-delete-bin-fill" : "ri-delete-bin-line"
     return (
         <div className="cart-item">
-            {trashCan()}
+            <i 
+                className={iconClassName}
+                onClick={() => removeFromCart(item.id)}
+                onMouseEnter={() => setHover(true)}
+                onMouseLeave={() => setHover(false)}
+            >
+            </i>
+            
             <img src={item.url} alt="" width="130px" />
             <p>$5.99</p>
         </div>

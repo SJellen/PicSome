@@ -14,20 +14,21 @@ function Cart() {
     function placeOrder() {
         setButtonText("Ordering....")
         setTimeout(() => {
-            console.log("Order placed!")
             setButtonText("Place Order")
             emptyCart()
         }, 3000)
     }
+
 
     return (
         <main className="cart-page">
             <h1>Check out</h1>
            {cartItemElements}
            <p className="total-cost">Total: {total} </p>
-            <div className="order-button">
-                <button onClick={placeOrder}>{buttonText}</button>
-            </div>
+           {
+               cartItems.length ? <div className="order-button"><button onClick={placeOrder}>{buttonText}</button></div> : <p>Your cart is empty</p>
+            }
+            
         </main>
     )
 }
