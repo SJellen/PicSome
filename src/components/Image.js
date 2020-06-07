@@ -6,8 +6,8 @@ import {Context} from '../Context'
 function Image({className, img}) {
 
     const [hover, setHover] = useState(false)
-    const {toggleFavorite} = useContext(Context)
-    const {addToCart} = useContext(Context)
+    const {toggleFavorite, addToCart, cartItems, removeFromCart} = useContext(Context)
+    
 
 
     function heartIcon() {
@@ -18,8 +18,19 @@ function Image({className, img}) {
         }
     }
 
+    function cartIcon() {
+        const inCart = cartItems.some(item => item.id === img.id)
+        if(inCart) {
+            return <i className="ri-shopping-cart-fill cart" onClick={() => removeFromCart(img.id)}></i>
+        } else if (hover) {
+            return <i className="ri-add-circle-line cart" onClick={() => addToCart(img)}></i>
+        }
+
+
+    } 
+
     
-    const plusIcon = hover && <i className="ri-add-circle-line cart" onClick={() => addToCart(img)}></i>
+   
     
 
     return (
@@ -29,7 +40,7 @@ function Image({className, img}) {
         >
         <img src={img.url}  alt="" className="image-grid" />
         {heartIcon()}
-        {plusIcon}
+        {cartIcon()}
         </div>
     )
 }
