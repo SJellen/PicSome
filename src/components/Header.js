@@ -18,7 +18,7 @@ function Header() {
     return (
         <div>
         <header>
-            <Link to="/"><h2>Pic Some</h2></Link>
+            <Link to="/"><h2 className="pic-some">Pic Some</h2></Link>
             <Link to="/cart">{headerCartIcon()}</Link>
         </header>
         
